@@ -5,10 +5,10 @@ namespace Automated_War_Level_Editor
 {
 
     [DataContract]
-    public class Tank
+    public class Unit
     {
 
-        public Tank()
+        public Unit()
         {
 
         }

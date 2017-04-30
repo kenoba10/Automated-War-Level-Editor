@@ -43,7 +43,7 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showStartsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showWallsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showTanksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showUnitsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.levelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -170,7 +170,7 @@
             this.undoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("undoToolStripMenuItem.Image")));
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.undoToolStripMenuItem.Text = "Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.OnUndoClicked);
             // 
@@ -179,7 +179,7 @@
             this.redoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("redoToolStripMenuItem.Image")));
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.redoToolStripMenuItem.Text = "Redo";
             this.redoToolStripMenuItem.Click += new System.EventHandler(this.OnRedoClicked);
             // 
@@ -188,7 +188,7 @@
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showStartsToolStripMenuItem,
             this.showWallsToolStripMenuItem,
-            this.showTanksToolStripMenuItem});
+            this.showUnitsToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
@@ -196,23 +196,23 @@
             // showStartsToolStripMenuItem
             // 
             this.showStartsToolStripMenuItem.Name = "showStartsToolStripMenuItem";
-            this.showStartsToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.showStartsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.showStartsToolStripMenuItem.Text = "Show Starts";
             this.showStartsToolStripMenuItem.Click += new System.EventHandler(this.OnShowStartsClicked);
             // 
             // showWallsToolStripMenuItem
             // 
             this.showWallsToolStripMenuItem.Name = "showWallsToolStripMenuItem";
-            this.showWallsToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.showWallsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.showWallsToolStripMenuItem.Text = "Show Walls";
             this.showWallsToolStripMenuItem.Click += new System.EventHandler(this.OnShowWallsClicked);
             // 
-            // showTanksToolStripMenuItem
+            // showUnitsToolStripMenuItem
             // 
-            this.showTanksToolStripMenuItem.Name = "showTanksToolStripMenuItem";
-            this.showTanksToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.showTanksToolStripMenuItem.Text = "Show Tanks";
-            this.showTanksToolStripMenuItem.Click += new System.EventHandler(this.OnShowTanksClicked);
+            this.showUnitsToolStripMenuItem.Name = "showUnitsToolStripMenuItem";
+            this.showUnitsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.showUnitsToolStripMenuItem.Text = "Show Units";
+            this.showUnitsToolStripMenuItem.Click += new System.EventHandler(this.onShowUnitsClicked);
             // 
             // levelToolStripMenuItem
             // 
@@ -226,7 +226,7 @@
             // 
             this.editInfoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editInfoToolStripMenuItem.Image")));
             this.editInfoToolStripMenuItem.Name = "editInfoToolStripMenuItem";
-            this.editInfoToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.editInfoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.editInfoToolStripMenuItem.Text = "Edit Info";
             this.editInfoToolStripMenuItem.Click += new System.EventHandler(this.OnEditInfoClicked);
             // 
@@ -242,7 +242,7 @@
             // 
             this.aboutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem.Image")));
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAboutClicked);
             // 
@@ -407,7 +407,7 @@
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(408, 592);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Tanks";
+            this.tabPage3.Text = "Units";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // listBox3
@@ -487,7 +487,7 @@
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.ToolStripMenuItem showStartsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showWallsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem showTanksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showUnitsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editInfoToolStripMenuItem;
     }
 }

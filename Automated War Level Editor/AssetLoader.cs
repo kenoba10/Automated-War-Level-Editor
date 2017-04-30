@@ -54,14 +54,14 @@ namespace Automated_War_Level_Editor
 
         }
 
-        public static List<Tank> LoadTanks()
+        public static List<Unit> LoadUnits()
         {
 
-            List<Tank> tanks = new List<Tank>();
+            List<Unit> units = new List<Unit>();
 
-            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(Tank));
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(Unit));
 
-            string[] files = Directory.GetFiles(Window.INSTALL_LOCATION + "content/units/tanks/");
+            string[] files = Directory.GetFiles(Window.INSTALL_LOCATION + "content/units/");
 
             foreach (string file in files)
             {
@@ -69,27 +69,27 @@ namespace Automated_War_Level_Editor
                 using (FileStream stream = new FileStream(file, FileMode.Open))
                 {
 
-                    Tank tank = (Tank)serializer.ReadObject(stream);
+                    Unit unit = (Unit)serializer.ReadObject(stream);
 
-                    tanks.Add(tank);
+                    units.Add(unit);
 
                 }
 
             }
 
-            return tanks;
+            return units;
 
         }
 
-        public static List<Bitmap> LoadTankBitmaps(List<Tank> tanks)
+        public static List<Bitmap> LoadUnitBitmaps(List<Unit> units)
         {
 
             List<Bitmap> bitmaps = new List<Bitmap>();
 
-            foreach (Tank tank in tanks)
+            foreach (Unit unit in units)
             {
 
-                bitmaps.Add(new Bitmap(Window.INSTALL_LOCATION + "textures/units/tanks/" + tank.ID + ".png"));
+                bitmaps.Add(new Bitmap(Window.INSTALL_LOCATION + "textures/units/" + unit.ID + "/editor.png"));
 
             }
 

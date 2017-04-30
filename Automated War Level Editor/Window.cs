@@ -14,13 +14,13 @@ namespace Automated_War_Level_Editor
         public static readonly float WIDTH = 618.0f;
 
         private List<Wall> walls;
-        private List<Tank> tanks;
+        private List<Unit> units;
 
         private List<Bitmap> wallBitmaps;
-        private List<Bitmap> tankBitmaps;
+        private List<Bitmap> unitBitmaps;
 
         private Dictionary<string, Wall> wallDictionary;
-        private Dictionary<string, Tank> tankDictionary;
+        private Dictionary<string, Unit> unitDictionary;
 
         private List<string> undoActions;
         private List<string> redoActions;
@@ -48,7 +48,7 @@ namespace Automated_War_Level_Editor
 
             LoadStartingPositions();
             LoadWalls();
-            LoadTanks();
+            LoadUnits();
 
             undoActions = new List<string>();
             redoActions = new List<string>();
@@ -91,18 +91,18 @@ namespace Automated_War_Level_Editor
 
         }
 
-        private void LoadTanks()
+        private void LoadUnits()
         {
 
-            tanks = AssetLoader.LoadTanks();
-            tankBitmaps = AssetLoader.LoadTankBitmaps(tanks);
-            tankDictionary = new Dictionary<string, Tank>();
+            units = AssetLoader.LoadUnits();
+            unitBitmaps = AssetLoader.LoadUnitBitmaps(units);
+            unitDictionary = new Dictionary<string, Unit>();
 
-            foreach (Tank tank in tanks)
+            foreach (Unit unit in units)
             {
 
-                tankDictionary.Add(tank.ID, tank);
-                listBox3.Items.Add(tank.Name + " Tank");
+                unitDictionary.Add(unit.ID, unit);
+                listBox3.Items.Add(unit.Name);
 
             }
 
@@ -425,7 +425,7 @@ namespace Automated_War_Level_Editor
 
                         }
                         break;
-                    case "tank":
+                    case "unit":
                         if (commands[1] == "add")
                         {
 
@@ -435,7 +435,7 @@ namespace Automated_War_Level_Editor
                         else
                         {
 
-                            Level.Tiles[int.Parse(commands[3])][int.Parse(commands[4])] = "tank_" + commands[2];
+                            Level.Tiles[int.Parse(commands[3])][int.Parse(commands[4])] = "unit_" + commands[2];
 
                         }
                         break;
@@ -483,11 +483,11 @@ namespace Automated_War_Level_Editor
 
                         }
                         break;
-                    case "tank":
+                    case "unit":
                         if (commands[1] == "add")
                         {
 
-                            Level.Tiles[int.Parse(commands[3])][int.Parse(commands[4])] = "tank_" + commands[2];
+                            Level.Tiles[int.Parse(commands[3])][int.Parse(commands[4])] = "unit_" + commands[2];
 
                         }
                         else
@@ -522,7 +522,7 @@ namespace Automated_War_Level_Editor
 
         }
 
-        private void OnShowTanksClicked(object sender, EventArgs e)
+        private void onShowUnitsClicked(object sender, EventArgs e)
         {
 
             tabControl1.SelectedIndex = 2;
@@ -627,9 +627,9 @@ namespace Automated_War_Level_Editor
 
                                 }
 
-                                undoActions.Add("tank_add_" + tanks[listBox3.SelectedIndex].ID + "_" + (int)tileX + "_" + (int)tileY);
+                                undoActions.Add("unit_add_" + units[listBox3.SelectedIndex].ID + "_" + (int)tileX + "_" + (int)tileY);
 
-                                Level.Tiles[(int)tileX][(int)tileY] = "tank_" + tanks[listBox3.SelectedIndex].ID;
+                                Level.Tiles[(int)tileX][(int)tileY] = "unit_" + units[listBox3.SelectedIndex].ID;
 
                                 UpdateMap();
 
@@ -702,10 +702,10 @@ namespace Automated_War_Level_Editor
                                 g.DrawImage(wallBitmaps[walls.IndexOf(wallDictionary[tile.Substring("wall_".Length)])], i * tileWidth, j * tileWidth, tileWidth, tileWidth);
 
                             }
-                            else if (tile.StartsWith("tank_"))
+                            else if (tile.StartsWith("unit_"))
                             {
 
-                                g.DrawImage(tankBitmaps[tanks.IndexOf(tankDictionary[tile.Substring("tank_".Length)])], i * tileWidth, j * tileWidth, tileWidth, tileWidth);
+                                g.DrawImage(unitBitmaps[units.IndexOf(unitDictionary[tile.Substring("unit_".Length)])], i * tileWidth, j * tileWidth, tileWidth, tileWidth);
 
                             }
 
